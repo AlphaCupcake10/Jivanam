@@ -1,0 +1,334 @@
+/* Nav Bar */
+#navbarDropdown {
+    font-weight: bold;
+}
+.navbar-nav, .navbar-brand  {
+    font-weight: bold;
+}
+
+.dropdown-menu .dropdown-header {
+    font-size: 1rem;
+}
+
+/* Header Section*/
+#top-header {
+    margin-top: 55px;
+}
+
+/* Image Source: https://i0.wp.com/uclg-aspac.org/wp-content/uploads/2020/02/200224-1.jpg?resize=624%2C372&ssl=1 */
+#header-bg {
+    background-image: url("../img/mmr-01.png"); 
+    background-size: contain; 
+    background-position: fixed;
+    height: 230px;
+    opacity: 0.55;
+    margin-bottom: 0;
+}
+
+#cite {
+    text-align: right;
+    font-size: 10px;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    margin: 2px;
+}
+
+h1 {
+    margin-top: 20px;
+    font-size: 3rem;
+    font-stretch: expanded;
+    font-weight: bolder;
+}
+
+h3 {
+    margin-top: 40px;
+    font-weight: bolder;
+}
+
+/* Main Section */
+#main-container {
+    margin-top: 30px;
+    margin-bottom: 40px;
+}
+
+/* Content */
+div #overview {
+    margin-bottom: 20px;
+    /* text-align: justify; */
+    /* Justify is not great practice for text in graphic design */
+}
+
+/* Global */
+#global {
+    margin-top: 25px;
+    margin-bottom: 25px;
+    padding: 0;
+    height: 650px;
+}
+@media (max-width: 675.98px) {
+    #global {
+        height: 650px;
+    }
+}
+@media (max-width: 575.98px) {
+    #global {
+        height: 600px;
+    }
+}
+@media (max-width: 475.98px) {
+    #global {
+        height: 500px;
+    }
+}
+@media (max-width: 375.98px) {
+    #global {
+        height: 400px;
+    }
+}
+
+#pieoverview {
+    background-color: #F2F3F4;
+    border-radius: 15px;
+    padding: 15px;
+    margin-top: 16px;
+    margin-bottom: 16px;
+}
+
+/* Caption */
+.caption {
+    font-size: 12px;
+}
+
+/* Affordable Care Act */
+.question {
+    text-align: left;
+    font-weight: bolder;
+    background-color: #F2F5F3;
+    border-radius: 15px;
+}
+
+.selection  {
+    font-weight: bold;
+}
+
+.selection2 {
+    font-weight: bold;
+}
+
+.question-badge {
+    width: 45px;
+}
+
+.fs-6 {
+    font-size: small;
+    margin-left: 80px;
+}
+
+/* Comparison */
+.question2 {
+    text-align: center;
+    font-weight: bolder;
+    background-color: #F2F5F3;
+    border-radius: 15px;
+}
+
+#rankedplot {
+    margin-top: 20px;
+}
+
+/* News */
+.card-img-top {
+    width: auto;
+    height: 150px;
+}
+
+/* Methodology */
+.card-header {
+    font-size: larger;
+    font-weight: bolder;
+}
+
+.card-title {
+    font-size: medium;
+    font-weight: bold;
+}
+
+/* About us */
+.profilepic {
+    align-items: center;
+    width: 200px;
+    height: 200px;
+    margin: auto;
+    margin-top: 10px;
+    -moz-border-radius: 10px;
+    -webkit-border-radius: 10px;
+    border-radius: 10px; /* future proofing */
+    -khtml-border-radius: 10px; /* for old Konqueror browsers */
+    margin-bottom: 10px;
+}
+
+
+.card {
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+h6 {
+    margin: 5px;
+    text-align: center;
+}
+
+.card h6{
+    margin: 5px;
+    text-align: center;
+    font-weight: bold;
+}
+
+.aboutus {
+    font-size: small;
+    text-align: center;
+    display: inline;
+} 
+
+
+.aboutus img {
+    width: 20px;
+    margin: 8px;
+}
+
+/* Reference */
+#reference {
+    font-size: 12px;
+}
+
+/* Footer */
+.footer {
+    background-color:  rgb(255, 255, 255); 
+    text-align: center;
+    font-size: small;
+    font-weight: bold;
+    color:  #545c63;
+    min-height: 40px;
+    position: relative;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    padding-top: 7px;
+    border-top-style: solid; 
+    border-top-width: 3px; 
+    border-top-color: gray;
+}
+
+.footer a {
+    color: #545c63;
+}
+
+.anychart-credits {
+    display: none !important;
+}
+
+.main-news-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+.news-container:first-child {
+    margin-top: 7em;
+}
+.news-container {
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+    margin-bottom: 1em;
+    padding: 0;
+    /* width: 80%; */
+    box-shadow: 0px 5px 15px rgb(32 39 58);
+}
+.news-img {
+    width: 40%;
+    height: 20%;
+    float: left;
+    margin-right: 1em;
+}
+.news-title {
+    font-size: 2.2em;
+    font-weight: normal;
+    text-align: center;
+    color: #FFFFFF;
+    background-color: #4f618F;
+    width: auto;
+    height: auto;
+    padding: 0;
+    margin: 0;
+}
+.info-container {
+    display: unset;
+    flex-wrap: wrap;
+}
+.desc {
+    /* color: black; */
+    text-align: left;
+    font-weight: normal;
+    font-size: 1.2em;
+    margin: 0;
+    padding-right: .5em;
+    padding-top: .5em;
+    padding-bottom: .5em;
+    padding-left: .5em;
+}
+.author {
+    /* color: black; */
+    font-style: italic;
+    font-weight: normal;
+    margin-left: 1em;
+    font-size: 1.4em;
+}
+
+/* Table Style for non-race-model*/
+#model {
+    font-family: Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+    width: 25%;
+  }
+  
+#model td, #model th {
+    border: 1px solid #ddd;
+    padding: 8px;
+  }
+  
+#model tr:nth-child(even){background-color: #f2f2f2;}
+  
+#model tr:hover {background-color: #ddd;}
+#model th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color: #ffcccc;
+    color: black;
+  }
+
+.center {
+    margin-left: auto;
+    margin-right: auto;
+  }  
+
+/* \Table Style for non-race-model*/
+
+.align-right {
+    justify-content: right;
+}
+#select-measure {
+    padding-top: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#select-measure .selection {
+    padding-right: 6px;
+}
+#playground-btns {
+    display: flex;
+    justify-content: space-between;
+}

@@ -1,0 +1,112 @@
+{% extends "layout.html" %}
+{% block body %}
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/landing.css')}}">
+<div class="TitlePanel">
+    <div class="TitlePanel-margin"></div>
+    <img class="logo " src="/static/logo_Pink.png"/>
+    {% if current_user.is_authenticated %}
+    <a style="border-radius: 2rem; border:none; color: #93215A;font-weight: 900;" class="btn loginbtn box-shadow" href="{{ url_for('profile') }}">PROFILE</a>
+    <p class="signup-prompt">You are logged in as {{ current_user.display_name() }}</p>
+    {% else %}
+    <a style="border-radius: 2rem; border:none; color: #93215A;font-weight: 900;" class="btn loginbtn box-shadow" href="{{ url_for('login') }}">LOGIN</a>
+    <p class="signup-prompt">Don't have an account? <a style="color: #FFEAEB ;" href="{{ url_for('register') }}">Sign up here</a>.</p>
+    {% endif %}
+    <div class="TitlePanel-margin"></div>
+</div>
+
+<!--
+<div class="Slide pinkPanel box-shadow">
+    <div class="left">
+        <img class="illustrations" src="/static/Illustraions/WhyJīvanam.png">
+    </div>
+    <div class="right">
+        <div class="Slide-Title">WHY JIVANAM?</div>
+            Maternal Health is an important aspect for the
+            development of any country in terms of increasing
+            equity & reducing poverty. The survival and well-being
+            of mothers is not only important in their own right but
+            are also central to solving large broader, economic,
+            social and developmental challenges
+    </div>
+</div>
+
+-->
+<div class="Slide pinkPanel box-shadow">
+    <div class="right">
+        <div class="Slide-Title"><div class="Slide-SubTitle">WHAT IS</div>MATERNAL MORTALITY?</div>
+        The annual number of female deaths from any cause related to or aggravated by pregnancy or its management (excluding accidental or incidental causes) during pregnancy and childbirth or within 42 days of termination of pregnancy, irrespective of the duration and site of the pregnancy.
+    </div>
+    <div class="left">
+        <img class="illustrations" src="/static/Illustraions/Mortality.png">
+    </div>
+</div>
+
+<div class="image-div" style="font-size: 1rem;font-weight: 200;">
+    A mother is your first friend, your best friend, your forever friend.
+</div>
+
+<div class="Slide pinkPanel box-shadow">
+    <div class="left" style="width:40vw;">
+        <img class="illustrations" src="/static/Illustraions/aim.png">
+    </div>
+    <div class="right">
+        <div class="Slide-Title">OUR AIM</div>
+            <ul style="font-size:large;">
+                <li>Make maternal health care facilities accessible to everyone including rural and other deprived regions of India.</li>
+                <li>Create awareness and an interactive platform for mothers all over the globe.</li>
+                <li>Be available 24/7 on a single click.</li>
+                <li>Keep a track of high risk pregnancies and providing emergency numbers for the same.</li>
+            </ul>
+    </div>
+</div>
+
+<div class="image-div" style="font-size: 1rem;font-weight: 200;">
+    Motherhood is the biggest gamble in the world. It is the glorious life force. It’s huge and scary – it’s an act of infinite optimism.
+</div>
+
+<div class="Slide pinkPanel box-shadow">
+    <div class="left" style="width:40vw;">
+        <img class="illustrations" src="/static/Illustraions/Chat bot-pana.png">
+    </div>
+    <div class="right">
+        <div class="Slide-Title">HEALTH CHAT BOT</div>
+            A chatbot based on RASA trained on data related to health queries.
+    </div>
+</div>
+
+<div class="image-div" style="font-size: 1rem;font-weight: 200;">
+    To describe my mother would be to write about a hurricane in its perfect power.
+</div>
+
+<div class="Slide pinkPanel box-shadow">
+    <div class="right" style="padding-right: 0px;">
+        <div class="Slide-Title">PARENTS COMMUNITY</div>
+            Parents can share their experiences via <br>the Community Feature and 
+            they can discuss their lifestyle, <br>problems and issues. 
+            This makes their experience more interactive and efficient. 
+    </div>
+    <div class="left" style="width:40vw;">
+        <img class="illustrations" src="/static/Illustraions/Parents-bro.png">
+    </div>
+</div>
+
+<div class="image-div" style="font-size: 1rem;font-weight: 200;"> 
+    When you are looking at your mother, you are looking at the purest love you will ever know.
+</div>
+
+<div class="Slide pinkPanel">
+    <div class="left" style="width:40vw;">
+        <img class="illustrations" src="/static/Illustraions/Startled-bro.png">
+    </div>
+    <div class="right">
+        <div class="Slide-Title">OTHER APP FEATURES</div>
+            <ul>
+                <li>Login and Account Management</li>
+                <li>News and Articles</li>
+                <li>Midwife digital matching service</li>
+                <li>Resource matching for expecting and new parents</li>
+            </ul>
+    </div>
+</div>
+
+{% endblock %}

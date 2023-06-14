@@ -1,0 +1,37 @@
+{% extends "layout.html" %}
+{% block body %}
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/card.css')}}">
+<div class="image-div">
+  MIDWIFE PORTAL
+</div>
+
+<div class="card-class-container">
+
+  <div class="card-class">
+    <img class="card-class-image"
+      src="https://www.onmanorama.com/content/dam/mm/en/career-and-campus/top-news/images/2021/3/1/nurse.jpg.transform/onm-articleimage/image.jpg"
+      alt="Card image cap">
+    <div class="card-class-body">
+      <div class="card-class-title">Sushmita</div>
+      <div class="">
+        <div class="card-class-subtext"><strong>Experience: </strong> 4yrs</div>
+        <div class="card-class-subtext"><strong>Location: </strong> Within 10km</div>
+        <div class="card-class-subtext"><strong>Contact: </strong> <a href="tel:92123xxxxx">92123xxxxx</a></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card-class">
+    <img class="card-class-image" src="https://images.indianexpress.com/2018/03/nurse-759.jpg?w=389"
+      alt="Card image cap">
+    <div class="card-class-body">
+      <div class="card-class-title">Sugandha</div>
+      <div class="">
+        <div class="card-class-subtext"><strong>Experience: </strong> 4yrs</div>
+        <div class="card-class-subtext"><strong>Location: </strong> Within 15km</div>
+        <div class="card-class-subtext"><strong>Contact: </strong> <a href="tel:87123xxxxx">87123xxxxx</a></div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

@@ -1,0 +1,58 @@
+{% extends "layout.html" %}
+{% block body %}
+<script src="https://polyfill.io/v3/polyfill.min.js?version=3.52.1&features=fetch"></script>
+    <script src="https://js.stripe.com/v3/"></script>
+<link rel="stylesheet" href="static/css/map.css" />
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/card.css')}}">
+<div class="image-div">
+    OUR PRODUCTS
+</div>
+
+<div class="card-class-container">
+    <div class="card-class">
+        <img class="card-class-image" src="/static/Book.png" alt="Card image cap">
+        <div>
+            <div class="card-class-title">
+                What to expect ...
+            </div>
+            <div class="card-class-subtext"><strong>Desc: </strong> A book to prepare you for your first baby</div>
+            <div class="card-class-subtext"><strong>Price: </strong> 199 Rupees</div>
+            <form action="/create-checkout-session" method="post">
+            <button type="submit" id="checkout-button" class="card-class-button">
+                BUY NOW
+            </button>
+        </form>
+        </div>
+    </div>
+
+    <div class="card-class">
+        <img class="card-class-image" src="/static/Book2.png" alt="Card image cap">
+        <div>
+            <div class="card-class-title">
+                Health care
+            </div>
+            <div class="card-class-subtext"><strong>Desc: </strong> A book to recover from your first pregnancy</div>
+            <div class="card-class-subtext"><strong>Price: </strong> 199 Rupees</div>
+            <div class="card-class-button">
+                BUY NOW
+            </div>
+        </div>
+    </div>
+
+    <div class="card-class">
+        <img class="card-class-image" src="/static/Book3.png" alt="Card image cap">
+        <div>
+            <div class="card-class-title">
+                Parental guide
+            </div>
+            <div class="card-class-subtext"><strong>Desc: </strong>This book will help you upbring your child healthier
+            </div>
+            <div class="card-class-subtext"><strong>Price: </strong> 199 Rupees</div>
+            <div class="card-class-button">
+                BUY NOW
+            </div>
+        </div>
+    </div>
+
+</div>
+{% endblock %}

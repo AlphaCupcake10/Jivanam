@@ -1,0 +1,35 @@
+{% extends "layout.html" %}
+{% block body %}
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/card.css')}}">
+<link rel="stylesheet" href="static/css/map.css" />
+<div class="image-div">
+    SUPPLEMENTS FOR PREGNANCY
+</div>
+
+<div class="card-class-container">
+    <div class="card-class">
+        <img class="card-class-image"
+            src="https://onemg.gumlet.io/l_watermark_346,w_690,h_700/a_ignore,w_690,h_700,c_pad,q_auto,f_auto/igfbo0nlycpxnhdsoyoy.jpg"
+            alt="Card image cap">
+        <div>
+            <div class="card-class-title">Mother's Horlicks</div>
+            <a class="card-class-button"
+                href="https://www.1mg.com/categories/fitness-supplements/family-nutrition/pregnancy-lactation-834">
+                BUY NOW
+            </a>
+        </div>
+    </div>
+    <div class="card-class">
+        <img class="card-class-image"
+            src="https://onemg.gumlet.io/l_watermark_346,w_690,h_700/a_ignore,w_690,h_700,c_pad,q_auto,f_auto/cropped/aokqjhqfrx5ab1vygedm.jpg"
+            alt="Card image cap">
+        <div>
+            <div class="card-class-title">Vitamin D</div>
+            <a class="card-class-button" href="https://www.1mg.com/otc/d3sol-sachet-vanilla-otc323291">
+                BUY NOW
+            </a>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,123 @@
+{% extends "layout.html" %}
+{% block body %}
+
+    <!-- AnyChart CSS -->
+    <link rel="stylesheet" href="static/css/anychart/anychart-ui.min.css" />
+    <link rel="stylesheet" href="https://cdn.anychart.com/releases/v8/fonts/css/anychart-font.min.css" />
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="static/css/style.css"/>
+
+    <!-- Main Section -->
+    <div id="main-container" class="container">
+        <div class="row">
+            <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 col-xxl-12">
+                <div id="global"></div>
+            </div>
+        </div>
+        <div class="row">
+            <span class="caption col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 col-xxl-12">
+                <b>Note:</b> Maternal Mortality Ratio (MMR) is the number of deaths due to complications of pregnancy or childbirth per 100,000 live births. UNICEF classifies MMR < 100 as "Very Low", MMR 100–299 classified "Low", MMR 300–499 classified "High", MMR 500–999 classified "Very High", MMR > 1000 classified "Extremely High".
+            </span>
+        </div>
+        <div class="row">
+            <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 col-xxl-12">
+                <h3>Global MMR Overview</h3>
+                <hr>
+                <div id="overview">
+                    <p>
+                        The World Health Organization defines maternal mortality as <q>the death of a woman while pregnant or within 42 days of termination of pregnancy, irrespective of the duration and site of the pregnancy, from any cause related to or aggravated by the pregnancy or its management but not from accidental or incidental causes.</q><a href="#WHO" aria-describedby="footnote-label" id="WHO-ref"></a>
+                    </p>
+                    <p>
+                        <q>The number of women and girls who died each year from complications of pregnancy and childbirth
+                        declined from 451,000 in 2000 to 295,000 in 2017. These improvements are particularly remarkable
+                        in light of rapid population growth in many of the countries where maternal deaths are highest.
+                        Still, over 800 women are dying each day from complications in pregnancy and childbirth. And for
+                        every woman who dies, approximately 20 others suffer serious injuries, infections or
+                        disabilities.</q><a href="#UNICEF-2" aria-describedby="footnote-label" id="UNICEF-2-ref"></a>
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 col-xxl-12">
+                <h3>Maternal Healthcare in Developed Countries</h3>
+                <hr>
+                <div class="overview">
+                    <p>The <strong>United States has the highest maternal mortality ratio</strong> among developed countries. 
+                        Obstetrician-gynecologists (OB-GYNs) are overrepresented in the U.S. maternity care workforce
+                        relative to midwives, and there is an overall shortage of maternity care providers (both
+                        OB-GYNs and midwives) relative to births. In most other countries, midwives outnumber
+                        OB-GYNs severalfold, and primary care plays a central role in these country's health systems.
+                        Although a large share of its maternal deaths occur postbirth, the U.S. is the only developed
+                        country to not guarantee access to provider home visits or paid parental leave in the
+                        postpartum period.<a href="#Tikkanen" aria-describedby="footnote-label" id="Tikkanen-ref"></a>
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 col-xxl-12">
+                <div id="global-bubble"></div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 col-xxl-12">
+                <h3>Causes of Maternal Death</h3>
+                <hr>
+            </div>
+        </div>
+        <div class="row">
+            <div class="well col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 col-xxl-12">
+                <h7 class='selection'>Select a Region</h7>
+                <select id="selDataset" onchange="regionChanged(this.value)"></select>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12 col-sm-12 col-md-12 col-lg-7 col-xl-7 col-xxl-7">
+                <div id='pie-global'></div>
+                <span class="caption">
+                    <b>Note:</b> Nearly all (99%) of abortion deaths are due to unsafe abortions. Other direct causes of
+                    maternal deaths include obstructed labor and anaemia.
+                </span>
+            </div>
+            <div class="col-12 col-sm-12 col-md-12 col-lg-5 col-xl-5 col-xxl-5 d-flex align-items-center">
+                <p id='pieoverview'>
+                    <q>The complications leading to maternal death can occur without warning at any time during pregnancy
+                    and childbirth. Most maternal deaths can be prevented if births are attended by skilled health
+                    personnel—doctors, nurses or midwives—who are regularly supervised, have the proper equipment
+                    and supplies, and can refer women in a timely manner to emergency obstetric care when complications
+                    are diagnosed. Complications require prompt access to quality obstetric services equipped with
+                    life-saving drugs, including antibiotics, and the ability to provide blood transfusions needed to
+                    perform Caesarean sections or other surgical interventions.</q><a href="#UNICEF-4" aria-describedby="footnote-label" id="UNICEF-4-ref"></a>
+                </p>
+            </div>
+        </div>
+
+    <!-- BootStrap JS -->
+    <script src="static/js/jquery/jquery-3.5.1.slim.min.js"></script>
+    <script src="static/js/popper/popper.min.js"></script>
+    <script src="static/js/bootstrap/bootstrap.bundle.min.js"></script>
+
+    <!-- AnyChart -->
+    <script src="static/js/anychart/world.js"></script>
+    <script src="static/js/anychart/anychart-base.min.js"></script>
+    <script src="static/js/anychart/anychart-ui.min.js"></script>
+    <script src="static/js/anychart/anychart-exports.min.js"></script>
+    <script src="static/js/anychart/anychart-map.min.js"></script>
+    <script src="static/js/anychart/anychart-data-adapter.min.js"></script>
+    <script src="static/js/anychart/proj4.js"></script>
+
+    <!-- D3 JS -->
+    <script src="static/js/d3/d3.v6.min.js"></script>
+
+    <!-- Plot.ly -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/5.5.0/d3.js"></script>
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+
+    <!-- JS -->
+    <script src="static/js/main.js"></script>
+
+{% endblock %}

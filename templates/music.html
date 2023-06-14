@@ -1,0 +1,100 @@
+{% extends "layout.html"%}
+{% block body%}
+
+
+<!-- CSS -->
+<link rel="stylesheet" href="static/css/style.css" />
+<link rel="stylesheet" href="static/css/map.css" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.1.0/css/font-awesome.min.css" />
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+<style>
+
+:root
+{
+    --accent-color1 : #93215A;
+    --accent-color2 : #FF007E;
+    --background-color : #ffffff;
+    --font-color : #232121;
+    font-family: 'Inter', sans-serif;
+    --cubic-bezier : cubic-bezier(.65,.31,.04,.99);
+}
+    .cards-container
+{
+    display: flex;
+    flex-wrap: wrap;
+    margin: 2px;
+}
+.card
+{
+    position: relative;
+    color: inherit;
+
+    margin: 2px;
+    padding: 2rem 1rem;
+    
+    flex-grow: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    border-radius: 1rem;
+    background-color: white;
+    border: solid 2px rgba(128, 128, 128, 0.24);
+    
+    transition: all 500ms var(--cubic-bezier);
+}
+.card:hover
+{
+    flex-grow: 2;
+}
+.card::before 
+{
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 0;
+    border-radius: 1rem;
+    z-index: 0;
+    -webkit-box-shadow: 4px 8px 19px -3px rgba(0,0,0,0.27);
+    box-shadow: 4px 8px 19px -3px rgba(0,0,0,0.27);
+    transition: all 250ms;
+}
+.card.acc1::before
+{
+    background-color: var(--accent-color1);
+}
+.card.acc2::before
+{
+    background-color: var(--accent-color2);
+}
+.card:hover::before
+{
+    width: 100%;
+}
+.card:hover > h2
+{
+    transition: all 200ms var(--cubic-bezier);
+    z-index: 2;
+    color: var(--background-color);
+}
+</style>
+<!-- Top Section -->
+<div class="image-div">
+    <div id="top-header" class="container-fluid">
+        <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 col-xxl-12 text-center">
+            <h1>Music <span class="material-symbols-outlined">
+                music_note
+                </span></h1>
+            <h6>Relax Zone - Play your stress away</h6>
+        </div>
+    </div>
+</div>
+<div class="cards-container">
+    <a style="text-decoration: none;" href="https://www.instagram.com/ar/766961085218222/?ch=YjJkN2YyZDgwM2YzMjZjNzFmNDUwMmMzZjdkNDE5ZTk%3D" class="card acc1">
+        <h2>AR PIANO</h2>
+    </a>
+</div>
+
+{% endblock %}

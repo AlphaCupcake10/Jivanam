@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=EDGE">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Maternal Health">
+    <title>Maternal Health</title>
+
+    <!-- Bootstrap CSS -->
+    <!-- CSS only -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.15.1/css/all.css" integrity="sha384-9ZfPnbegQSumzaE7mks2IYgHoayLtuto3AS6ieArECeaR8nCfliJVuLh/GaQ1gyM" crossorigin="anonymous">
+    
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/custom.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/common.css')}}">
+
+</head>
+
+<body>
+
+    <nav style="
+        box-shadow: 10px 10px 44px 1px rgba(0,0,0,0.05);background-color: #FFEAEB ;" class="navbar navbar-expand-md navbar-light fixed-top">
+        <!-- Brand -->
+        <a class="navbar-brand" href="/"><i class="far fa-home text-dark home"></i></a>
+
+        <!-- Toggler/collapsibe Button -->
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+            <span><i class="far fa-bars"></i></span>
+        </button>
+
+        <!-- Navbar links -->
+        <div class="collapse navbar-collapse" id="collapsibleNavbar">
+            <ul class="navbar-nav">
+                {% if current_user.is_authenticated %}
+                <li class="nav-item">
+                    <a class="nav-link" href="{{url_for('profile')}}">My Profile</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{url_for('articles')}}">News</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{url_for('community')}}">Community</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{url_for('midwife')}}">Midwife Portal</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{url_for('chat')}}">Chat</a>
+                </li>
+                <li class="nav-item">
+
+                    <a class="nav-link" href="{{url_for('stats')}}">World Data</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{url_for('ml_playground')}}">MMR</a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                      RelaxZone
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                      <a class="dropdown-item" href="{{url_for('music')}}">Music</a>
+                      <a class="dropdown-item" href="{{url_for('art')}}">Art</a>
+                      <a class="dropdown-item" href="{{url_for('yoga')}}">Yoga</a>
+                    </ul>
+                  </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{url_for('product')}}">Our Products</a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                      Resources
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                      <a class="dropdown-item" href="{{url_for('food')}}">Food</a>
+                      <a class="dropdown-item" href="{{url_for('meds')}}">Medicines</a>
+                    </ul>
+                  </li>
+                {% endif %}
+            </ul>
+
+            <ul class="navbar-nav ml-auto">
+                {% if current_user.is_authenticated %}
+                <li class="nav-item d-none d-md-block">
+                    <span class="navbar-text mr-5">Logged in as {{ current_user.first_name }}</span>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{url_for('logout')}}">Logout</a>
+                </li>
+                {% else %}
+                <li class="nav-item">
+                    <a class="nav-link" href="{{url_for('login')}}">Login</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{url_for('register')}}">Sign Up</a>
+                </li>
+                {% endif %}
+            </ul>
+        </div>
+    </nav>
+
+    {% block body %}{% endblock %}
+</div>
+{% if current_user.is_authenticated %}
+<div id="chat-circle" style="background-color: #93215A;" class="btn btn-raised">
+    <div id="chat-overlay"></div>
+    <i class="material-icons">chat</i>
+</div>
+
+<div class="chat-box">
+<div class="chat-box-header" style="background-color: #93215A;">
+  Health Chat Bot
+  <span class="chat-box-toggle"><i class="material-icons">close</i></span>
+</div>
+<div class="chat-box-body">
+  <div class="chat-box-overlay">   
+  </div>
+  <div class="chat-logs">
+   
+  </div><!--chat-log -->
+</div>
+<div class="chat-input">      
+  <form>
+    <input type="text" id="chat-input" placeholder="Send a message..."/>
+  <button type="submit" class="chat-submit" id="chat-submit"><i class="material-icons">send</i></button>
+  </form>      
+</div>
+</div>
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script>
+$(function()
+{
+    var INDEX = 0; 
+    $("#chat-submit").click(function(e) // gets called when pressed send
+    {
+        e.preventDefault();
+        var user_input = $("#chat-input").val(); //get message from input
+        if(user_input.trim() == '')//if empty don't proceed
+        {
+            return false;
+        }
+
+        UserInput(user_input);
+
+        $.get("/bothook", {
+        msg: user_input
+        }).done(function(data) {
+            BotSays(data);  
+        });     
+    })
+
+    function BotSays(msg)
+    {
+        setTimeout(function()
+        {      
+        generate_message(msg, 'user');  
+        }, 1000)
+    }  
+
+    function UserInput(msg)
+    {
+        generate_message(msg, 'self');
+    }
+
+    function generate_message(msg, type)
+    {
+        INDEX++;
+        var str="";
+        str += "<div id='cm-msg-"+INDEX+"' class=\"chat-msg "+type+"\" mb-2>";
+        str += "          <span class=\"msg-avatar\">";
+        str += "            <img src=\"https:\/\/cdn-icons-png.flaticon.com\/512\/3177/3177440.png\">";
+        str += "          <\/span>";
+        str += "          <div class=\"cm-msg-text\">";
+        str += msg;
+        str += "          <\/div>";
+        str += "        <\/div>";
+        $(".chat-logs").append(str);
+        $("#cm-msg-"+INDEX).hide().fadeIn(300);
+        if(type == 'self'){
+        $("#chat-input").val(''); 
+        }    
+        $(".chat-logs").stop().animate({ scrollTop: $(".chat-logs")[0].scrollHeight}, 1000);    
+    }  
+
+    $(document).delegate(".chat-btn", "click", function() {
+    var value = $(this).attr("chat-value");
+    var name = $(this).html();
+    $("#chat-input").attr("disabled", false);
+    UserInput(name);
+    })
+
+    $("#chat-circle").click(function() {    
+    $("#chat-circle").toggle('scale');
+    $(".chat-box").toggle('scale');
+    })
+
+    $(".chat-box-toggle").click(function() {
+    $("#chat-circle").toggle('scale');
+    $(".chat-box").toggle('scale');
+    })
+
+})
+</script>
+    <!-- <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>-->
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <!-- Custom JS -->
+    <script src="{{ url_for('static', filename='js/custom.js') }}"></script>
+
+{% endif %}
+
+</body>
+
+</html>

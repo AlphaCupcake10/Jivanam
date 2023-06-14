@@ -1,0 +1,26 @@
+{% extends "layout.html" %}
+{% block body %}
+
+<div class="image-div">
+    COMMUNITY POSTS
+</div>
+
+<div class="col-lg-4 container">
+    {% for article in articles %}
+    <div class="mt-5 p-2 round-box-with-shadow">
+        <div class="card-body">
+            <h3 class="card-title">{{ article.title}}</h3>
+            <p class="card-text">{{ article.body }}</p>
+        </div>
+        <div class="card-footer bg-light d-flex justify-content-between" style="border-radius:0rem 0rem 1rem 1rem ;">
+            <div class="my-auto">
+                <p class="my-auto text-muted">{{ article.date_string }} &nbsp;- by &nbsp;{{article.user_name}}</p>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+
+</div>
+</div>
+
+{% endblock %}

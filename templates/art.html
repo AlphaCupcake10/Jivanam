@@ -1,0 +1,178 @@
+{% extends "layout.html"%}
+{% block body%}
+
+
+<!-- CSS -->
+<link rel="stylesheet" href="static/css/style.css" />
+<link rel="stylesheet" href="static/css/map.css" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.1.0/css/font-awesome.min.css" />
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,700,0,200" />
+
+<style>
+.canvas {
+  box-sizing:border-box;
+  padding:0px;
+  margin:0px;
+  background-color: #0f2867;
+  font-family: "Roboto", sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  margin: 0;
+}
+
+canvas {
+  box-sizing:border-box;
+  padding:0px;
+  margin:0px;
+  width:100%;
+  height:100%;
+  background: #fff;
+}
+
+.toolbox {
+  box-sizing:border-box;
+  padding:0px;
+  margin-left: 40%;
+  bottom:0;
+  background-color:#ddd;
+  display: flex;
+  justify-content:center;
+  align-content:center;
+  width: 400px;
+  padding: 1rem;
+  border-radius:1rem 1rem 0 0;
+}
+
+.toolbox > * {
+  box-sizing:border-box;
+  padding:0px;
+  margin:0px;
+  background-color: #fff;
+  border: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1rem;
+  height: 50px;
+  flex-grow:1;
+  margin: 0.25rem;
+  padding: 0.25rem;
+  cursor: pointer;
+  transition:all 200ms ease-in-out;
+  border-radius:1rem;
+}
+
+.toolbox > *:hover {
+  flex-grow:2;
+}
+.toolbox > *:active {
+  transform:scale(.9);
+}
+
+#color::-webkit-color-swatch
+{
+  border-radius:.75rem;
+}
+</style>
+
+<!-- Top Section -->
+<div class="image-div">
+    <div id="top-header" class="container-fluid">
+        <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 col-xxl-12 text-center">
+            <h1>Art <span class="material-symbols-outlined">
+                brush
+                </span></h1>
+            <h6>Relax Zone - Play your stress away</h6>
+        </div>
+    </div>
+</div>
+</div>
+<canvas id="canvas"></canvas>
+    <div class="toolbox">
+      <button id="decrease">➖</button>
+      <span id="size">10</span>
+      <button id="increase">➕</button>
+      <input type="color" id="color" />
+      <button id="clear">🗑️</button>
+    </div>
+
+<script>
+  // Ref: https://developer.mozilla.org/fr/docs/Web/API/Canvas_API
+const canvas = document.getElementById("canvas");
+const increaseButton = document.getElementById("increase");
+const decreaseButton = document.getElementById("decrease");
+const sizeElement = document.getElementById("size");
+const colorElement = document.getElementById("color");
+const clearElement = document.getElementById("clear");
+const ctx = canvas.getContext("2d");
+let size = 10;
+let color = "black";
+let x;
+let y;
+let isPressed = false;
+canvas.width  = window.innerWidth;
+canvas.height = window.innerHeight; 
+const drawCircle = (x, y) => {
+  ctx.beginPath();
+  ctx.arc(x, y, size, 0, Math.PI * 2);
+  ctx.fillStyle = color;
+  ctx.fill();
+};
+
+const drawLine = (x1, y1, x2, y2) => {
+  ctx.beginPath();
+  ctx.moveTo(x1, y1);
+  ctx.lineTo(x2, y2);
+  ctx.strokeStyle = color;
+  ctx.lineWidth = size * 2;
+  ctx.stroke();
+};
+
+const updateSizeOnScreen = () => (sizeElement.innerText = size);
+
+canvas.addEventListener("mousedown", (e) => {
+  isPressed = true;
+  x = e.offsetX;
+  y = e.offsetY;
+});
+
+canvas.addEventListener("mouseup", (e) => {
+  isPressed = false;
+  x = undefined;
+  y = undefined;
+});
+
+canvas.addEventListener("mousemove", (e) => {
+  if (isPressed) {
+    x2 = e.offsetX;
+    y2 = e.offsetY;
+    drawCircle(x2, y2);
+    drawLine(x, y, x2, y2);
+    x = x2;
+    y = y2;
+  }
+});
+
+increaseButton.addEventListener("click", () => {
+  size += 5;
+  if (size > 50) size = 50;
+  updateSizeOnScreen();
+});
+
+decreaseButton.addEventListener("click", () => {
+  size -= 5;
+  if (size < 5) size = 5;
+  updateSizeOnScreen();
+});
+
+colorElement.addEventListener("change", (e) => (color = e.target.value));
+
+clearElement.addEventListener("click", () =>                           
+  ctx.clearRect(0, 0, canvas.width, canvas.height)
+);
+</script>
+
+{% endblock %}

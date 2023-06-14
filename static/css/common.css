@@ -1,0 +1,53 @@
+body {
+  background-color: #FFEAEB;
+}
+
+.round-box-with-shadow {
+  background-color: white;
+  border-radius: 1rem;
+  box-shadow: 5px 5px 20px 1px rgba(0, 0, 0, 0.1);
+}
+
+.image-div {
+  height: 50vh;
+
+  box-shadow: inset 20px 20px 60px rgba(0, 0, 0, 0.15),
+    inset -20px -20px 60px rgba(0, 0, 0, 0.15);
+
+  background-image: url("/static/BG.png");
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  color: transparent;
+  letter-spacing: 2px;
+
+  font-size: 3rem;font-weight: 700;
+  
+
+  animation: text_reveal 5s ease forwards;
+}
+
+@keyframes text_reveal {
+  0% {
+    color: transparent;
+  }
+
+  100% {
+    color: white;
+  }
+}
+
+.illustrations {
+  width: 70%;
+  height: 70%;
+  object-fit: contain;
+}
+
+@media (max-width: 700px) {
+  .illustrations {
+    display: none;
+  }
+}
+

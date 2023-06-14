@@ -31,6 +31,3 @@ python run.py
 ```
 localhost:8080
 ```
-
-## Project video demo and ppt
-[Demo](https://drive.google.com/drive/folders/1I1QFpAo1n-opBKE7Lh97h5hPMM8McRMc)
